@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "743155451598",
+    "firebase_url": "https://android-tour-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "android-tour",
+    "storage_bucket": "android-tour.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743155451598:android:69dde50dcd79e4ac4f329f",
+        "android_client_info": {
+          "package_name": "com.example.newapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqWUixIzgCd3iV6KTVosIiX8epnrijnxg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Newapp</string>
+    <string name="ha_van_long">Ha Van Long</string>
+    <string name="test">Test</string>
+    <string name="travel_the_world_made_simple">Travel the world made simple</string>
+    <string name="change_password">Change Password</string>
+    <string name="terms_amp_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="confirm_your_password">Confirm your password</string>
+    <string name="next" />
+</resources>

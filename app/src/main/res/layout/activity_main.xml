@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Main">
+
+
+    <LinearLayout
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+        <!-- Your content here -->
+
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="40dp"
+            android:text="@string/travel_the_world_made_simple"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:fontFamily="@font/archivo_bold"
+            app:textAllCaps="true" />
+
+
+        <SearchView
+            android:id="@+id/Start"
+            android:layout_width="320dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="42dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/search__view_bg"
+            android:hint="Start..."
+            android:orientation="horizontal"
+            app:iconifiedByDefault="false"
+            android:clickable="false"
+            />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/recommendation"
+        android:layout_width="350dp"
+        android:layout_height="match_parent"
+        android:layout_below="@id/search_bar"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="30dp"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5 Star Tour"
+            app:fontFamily="@font/archivo_bold" />
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" />
+
+
+    </LinearLayout>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/search__view_bg" />
+
+
+</RelativeLayout>

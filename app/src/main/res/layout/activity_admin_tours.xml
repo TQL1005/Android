@@ -1,0 +1,209 @@
+<!-- activity_tour_management.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Admin_tours">
+
+    <Button
+        android:id="@+id/addTourButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Tour"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/addTourButton"
+        android:layout_marginTop="16dp"
+        android:padding="16dp">
+
+        <TableLayout
+            android:id="@+id/tourTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ID"
+                    android:padding="8dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DesID"
+                    android:padding="8dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Start"
+                    android:padding="8dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="End"
+                    android:padding="8dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Amount"
+                    android:padding="8dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Action"
+                    android:padding="8dp"
+                    android:textStyle="bold"/>
+            </TableRow>
+
+        </TableLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/tourForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/idEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/destinationIdEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Destination ID"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/startDateEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Start Date (YYYY-MM-DD)"
+            android:inputType="date"/>
+
+        <EditText
+            android:id="@+id/endDateEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="End Date (YYYY-MM-DD)"
+            android:inputType="date"/>
+
+        <EditText
+            android:id="@+id/amountEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Amount"
+            android:inputType="numberDecimal"/>
+
+        <Button
+            android:id="@+id/addTourSubmitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Tour"/>
+
+        <Button
+            android:id="@+id/addTourCancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/editTourDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/editTourIdEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID"
+            android:inputType="number"
+            android:enabled="false"/>
+
+        <EditText
+            android:id="@+id/editDestinationIdEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Destination ID"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/editStartDateEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Start Date (YYYY-MM-DD)"
+            android:inputType="date"/>
+
+        <EditText
+            android:id="@+id/editEndDateEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="End Date (YYYY-MM-DD)"
+            android:inputType="date"/>
+
+        <EditText
+            android:id="@+id/editAmountEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Amount"
+            android:inputType="numberDecimal"/>
+
+        <Button
+            android:id="@+id/editTourSubmitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"/>
+
+        <Button
+            android:id="@+id/editTourCancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"/>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/exitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Return"
+        android:textSize="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"/>
+
+</RelativeLayout>

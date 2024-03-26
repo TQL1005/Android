@@ -1,0 +1,244 @@
+<!-- activity_destination_management.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Admin_destination">
+
+    <Button
+        android:id="@+id/addDestinationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Destination"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/addDestinationButton"
+        android:layout_marginTop="16dp"
+        android:padding="16dp">
+
+        <TableLayout
+            android:id="@+id/destinationTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ID"
+                    android:padding="8dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Destination"
+                    android:padding="8dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:padding="8dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Price"
+                    android:padding="8dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Action"
+                    android:padding="8dp"
+                    android:textStyle="bold"/>
+            </TableRow>
+
+        </TableLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/destinationForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/idEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/destinationNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Destination Name"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/descriptionEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Description"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/priceEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Price"
+            android:inputType="numberDecimal"/>
+
+        <EditText
+            android:id="@+id/pic1EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Pic1"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/pic2EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Pic2"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/pic3EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Pic3"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/pic4EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Pic4"
+            android:inputType="text"/>
+
+        <Button
+            android:id="@+id/addDestinationSubmitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Destination"/>
+
+        <Button
+            android:id="@+id/addDestinationCancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/editDestinationDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/editDestinationIdEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID"
+            android:inputType="number"
+            android:enabled="false"/>
+
+        <EditText
+            android:id="@+id/editDestinationNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Destination Name"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/editDescriptionEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Description"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/editPriceEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Price"
+            android:inputType="numberDecimal"/>
+
+        <EditText
+            android:id="@+id/editPic1EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Pic1"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/editPic2EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Pic2"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/editPic3EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Pic3"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/editPic4EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Pic4"
+            android:inputType="text"/>
+
+        <Button
+            android:id="@+id/editDestinationSubmitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"/>
+
+        <Button
+            android:id="@+id/editDestinationCancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"/>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/exitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Return"
+        android:textSize="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"/>
+
+</RelativeLayout>

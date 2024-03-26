@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login">
+
+    <Button
+        android:id="@+id/Login"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Password"
+        android:layout_centerInParent="true"
+        android:text="login" />
+
+    <EditText
+        android:id="@+id/Password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Email"
+        android:layout_centerInParent="true"
+        android:ems="10"
+        android:hint="Enter your password"
+        android:inputType="textPassword"
+        android:minHeight="48dp" />
+
+    <EditText
+        android:id="@+id/Email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:ems="10"
+        android:hint="Enter your email"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp" />
+
+    <LinearLayout
+        android:id="@+id/name1Container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Login"
+        android:layout_marginTop="133dp"
+        android:layout_marginBottom="180dp"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <!-- Your content here -->
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="Don't have account ?" />
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="150dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="10dp"
+            android:text="register"
+            app:toggleCheckedStateOnClick="false" />
+    </LinearLayout>
+
+</RelativeLayout>

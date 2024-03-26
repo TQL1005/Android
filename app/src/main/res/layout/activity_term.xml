@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Term">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:text="By using this app, you agree to the following  terms &amp; conditions"
+        android:textSize="23sp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/textView"
+        android:text="1. You must be 18 years or older to use this app."
+        android:textSize="19sp" />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/textView2"
+        android:layout_marginEnd="20dp"
+        android:text="2. You must not use this app for any illegal activities."
+        android:textSize="19sp" />
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_below="@id/textView3"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp"
+        android:text="3. You must not use this app to abuse, harass, threaten, defame or otherwise violate the legal rights of others."
+        android:textSize="19sp" />
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_below="@id/textView4"
+        android:layout_marginTop="30dp"
+        android:text="4. You must not use this app to send any form of spam."
+        android:textSize="19sp" />
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView5"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:text="5. Should you discover a secret feature hidden within the app, you must perform a celebratory chicken dance and share the discovery with at least three friends. It's only fair.
+"
+        android:textSize="19sp" />
+
+    <Button
+        android:id="@+id/Back4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="570dp"
+        android:layout_marginStart="310dp"
+        android:text="Back"
+        tools:ignore="HardcodedText" />
+
+</RelativeLayout>

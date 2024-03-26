@@ -1,0 +1,209 @@
+<!-- activity_feedback_management.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Admin_feedback">
+
+    <Button
+        android:id="@+id/addFeedbackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Feedback"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/addFeedbackButton"
+        android:layout_marginTop="16dp"
+        android:padding="16dp">
+
+        <TableLayout
+            android:id="@+id/feedbackTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ID"
+                    android:padding="8dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="UserID"
+                    android:padding="8dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DesID"
+                    android:padding="8dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Feedback"
+                    android:padding="8dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date"
+                    android:padding="8dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Action"
+                    android:padding="8dp"
+                    android:textStyle="bold"/>
+            </TableRow>
+
+        </TableLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/feedbackForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/idEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/userIdEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="UserID"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/desIdEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Destination ID"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/feedbackEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Feedback"
+            android:inputType="textMultiLine"/>
+
+        <EditText
+            android:id="@+id/dateEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Date (YYYY-MM-DD)"
+            android:inputType="date"/>
+
+        <Button
+            android:id="@+id/addFeedbackSubmitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Feedback"/>
+
+        <Button
+            android:id="@+id/addFeedbackCancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/editFeedbackDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/editFeedbackIdEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID"
+            android:inputType="number"
+            android:enabled="false"/>
+
+        <EditText
+            android:id="@+id/editUserIdEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Bill ID"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/editDestinationIdEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Bill ID"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/editFeedbackEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Feedback"
+            android:inputType="textMultiLine"/>
+
+        <EditText
+            android:id="@+id/editDateEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Date (YYYY-MM-DD)"
+            android:inputType="date"/>
+
+        <Button
+            android:id="@+id/editFeedbackSubmitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"/>
+
+        <Button
+            android:id="@+id/editFeedbackCancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"/>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/exitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Return"
+        android:textSize="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"/>
+
+</RelativeLayout>

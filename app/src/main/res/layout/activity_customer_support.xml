@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CustomerSupport">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Customer Support"
+        android:textSize="30sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp" />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="If you have any questions, please contact us via email or phone number below"
+        android:textSize="15sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="70dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView2"
+        android:layout_marginStart="20dp"
+        android:text="Email: testing@gmail.com Phone number: +84 3343543232"
+        android:textSize="15sp" />
+    <Button
+        android:id="@+id/Back1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="570dp"
+        android:layout_marginStart="310dp"
+        android:text="Back"
+        tools:ignore="HardcodedText" />
+</RelativeLayout>
