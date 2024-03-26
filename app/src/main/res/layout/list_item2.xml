@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView4z"
+        android:layout_width="wrap_content"
+        android:layout_height="280dp"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/imageView4z">
+
+        <TextView
+            android:id="@+id/destinationz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="destination"
+            android:textStyle="bold|italic"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/descriptionz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/destinationz"
+            android:text="description"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/pricez"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_toRightOf="@id/destinationz"
+            android:text="price"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/amountz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/pricez"
+            android:text="amount"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/start_datez"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/descriptionz"
+            android:text="start_date"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/end_datez"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/descriptionz"
+            android:text="end_date"
+            tools:ignore="HardcodedText" />
+    </RelativeLayout>
+
+
+</RelativeLayout>
+
+
+

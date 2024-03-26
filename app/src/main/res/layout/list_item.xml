@@ -22,6 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="destination"
+            android:textStyle="bold|italic"
             tools:ignore="HardcodedText" />
 
         <TextView
@@ -40,6 +41,8 @@
             android:layout_toRightOf="@id/destination"
             android:text="price"
             tools:ignore="HardcodedText" />
+
+
     </RelativeLayout>
 
 

@@ -49,7 +49,7 @@ public class DesAdapter extends ArrayAdapter {
 
 
         Destination des1 = (Destination) getItem(position);
-        des.setText(String.format("%s", des1.getTour_name()));
+        des.setText(String.format("%s", des1.getDestinations()));
         desc.setText(String.format("Description =  %s", des1.getDescriptions()));
         price.setText(String.format("price = %.2f", des1.getPrice()));
         Glide.with(ctx)

@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Pair;
+import android.widget.TextView;
 
 
 import androidx.annotation.Nullable;
@@ -158,6 +159,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Destination destinationItem = new Destination(destination, description, price, img,start_date,end_date,amount,tour_name);
             list.add(destinationItem);
         }
+
         cursor.close(); // Close the cursor when finished
         return list;
     }

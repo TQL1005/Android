@@ -59,8 +59,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="5 Star Tour"
-            app:fontFamily="@font/archivo_bold" />
+            app:fontFamily="@font/archivo_bold"
+            android:id="@+id/Count"/>
 
         <ListView
             android:id="@+id/listView_detail_tour"
