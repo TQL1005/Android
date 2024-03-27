@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -48,6 +49,12 @@ public class Tour_List extends AppCompatActivity {
                 Tour_List.this.arrayList1.getFilter().filter(newText);
                 return true;
             }
+        });
+
+        Button btnBack = findViewById(R.id.back_arrow);
+        btnBack.setOnClickListener(v -> {
+            Intent intent = new Intent(Tour_List.this,Main.class);
+            startActivity(intent);
         });
     }
 

@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".Main">
 
+    <Button
+        android:id="@+id/back_arrow1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="300dp"
+        android:text="←"
+        android:textSize="35sp"
+        android:textColor="#000000"
+        android:background="?android:attr/selectableItemBackground"
+        />
 
     <LinearLayout
         android:id="@+id/search_bar"
@@ -14,7 +25,6 @@
         android:focusableInTouchMode="true"
         android:orientation="vertical">
         <!-- Your content here -->
-
 
         <TextView
             android:id="@+id/text"
@@ -28,12 +38,13 @@
             app:textAllCaps="true" />
 
 
+
         <SearchView
             android:id="@+id/Start_detail_tour"
-            android:layout_width="320dp"
+            android:layout_width="343dp"
             android:layout_height="60dp"
-            android:layout_marginLeft="42dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="40dp"
             android:background="@drawable/search__view_bg"
             android:hint="Start..."
@@ -70,14 +81,6 @@
 
 
     </LinearLayout>
-
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/search__view_bg" />
 
 
 </RelativeLayout>

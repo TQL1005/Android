@@ -3,6 +3,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,6 +19,7 @@ public class Profile extends AppCompatActivity {
     DatabaseHelper dbHelper;
     TextView eUsername;
     private static Integer temp = 0;
+    float x11, x21, y11, y21;
     String username;
     private Button btn,btn1,btn2,btn3,btn4,btn5;
     @Override
@@ -26,15 +28,17 @@ public class Profile extends AppCompatActivity {
         Intent intent = getIntent();
         setContentView(R.layout.activity_profile);
         getSupportActionBar().hide();
-        username = intent.getStringExtra("username");
+//        username = intent.getStringExtra("username");
         dbHelper = new DatabaseHelper(this);
+        username = dbHelper.getUser();
+
         eUsername = findViewById(R.id.name);
         eUsername.setText(username);
 
         //Ket noi den Cloud
-        if (temp == 0){
-            initConfig();
-        }
+//        if (temp == 0){
+//            initConfig();
+//        }
 
 
 
@@ -146,5 +150,24 @@ public class Profile extends AppCompatActivity {
         intent.putExtra("username", username);
         Profile.this.startActivity(intent);
     }
+    @Override
+    public boolean onTouchEvent(MotionEvent touchEvent) {
+        switch (touchEvent.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                x11 = touchEvent.getX();
+                y11 = touchEvent.getY();
+                break;
+            case MotionEvent.ACTION_UP:
+                x21 = touchEvent.getX();
+                y21 = touchEvent.getY();
+                if(x11 > x21){
+                    Intent i = new Intent(Profile.this,Main.class);
+                    startActivity(i);
+                }
+                break;
+        }
+        return false;
+    }
+
     
 }   

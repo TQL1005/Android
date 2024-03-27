@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -33,7 +34,7 @@ public class Detail_Tour extends AppCompatActivity {
         DesAdapter2 desAdapter = new DesAdapter2(this,R.layout.list_item2,arrayList);
         listView.setAdapter(desAdapter);
         TextView countTextView = findViewById(R.id.Count);
-        countTextView.setText(String.valueOf(arrayList.size())+"Services");
+        countTextView.setText(String.valueOf(arrayList.size())+" Services");
 
         listView.setOnItemClickListener((parent, view, position, id) -> {
             Destination destination = (Destination) desAdapter.getItem(position);
@@ -48,6 +49,11 @@ public class Detail_Tour extends AppCompatActivity {
                 Intent intent = new Intent(Detail_Tour.this,Tour_List.class);
                 startActivity(intent);
             }
+        });
+        Button btnBack = findViewById(R.id.back_arrow1);
+        btnBack.setOnClickListener(v -> {
+            Intent intent2 = new Intent(Detail_Tour.this,Main.class);
+            startActivity(intent2);
         });
     }
 }
