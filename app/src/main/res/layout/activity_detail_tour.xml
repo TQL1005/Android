@@ -38,7 +38,6 @@
             app:textAllCaps="true" />
 
 
-
         <SearchView
             android:id="@+id/Start_detail_tour"
             android:layout_width="343dp"
@@ -47,11 +46,10 @@
             android:layout_marginTop="30dp"
             android:layout_marginBottom="40dp"
             android:background="@drawable/search__view_bg"
+            android:clickable="false"
             android:hint="Start..."
             android:orientation="horizontal"
-            app:iconifiedByDefault="false"
-            android:clickable="false"
-            />
+            app:iconifiedByDefault="false" />
 
 
     </LinearLayout>
@@ -65,6 +63,7 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="30dp"
         android:focusableInTouchMode="true"
+        android:layout_marginBottom="30dp"
         android:orientation="vertical">
 
         <TextView
@@ -78,7 +77,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal" />
-
 
     </LinearLayout>
 

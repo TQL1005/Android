@@ -138,6 +138,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return list;
     }
 
+    // retrive picture
+    public ArrayList<Destination> getPics(String destinationName){
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<Destination> list = new ArrayList<>();
+        String[] selectionArgs = {destinationName};
+        Cursor cursor = db.rawQuery("select * from destinations where destination = ?",selectionArgs);
+        while(cursor.moveToNext()){
+            String img1 = cursor.getString(cursor.getColumnIndex("pic2"));
+            String img2 = cursor.getString(cursor.getColumnIndex("pic3"));
+            String img3 = cursor.getString(cursor.getColumnIndex("pic4"));
+            Destination destinationItem = new Destination(img1, img2,img3);
+            list.add(destinationItem);
+        }
+        cursor.close();
+        return list;
+    }
+
+
+
     public ArrayList<Destination> getDesForDetail(String item) {
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<Destination> list = new ArrayList<>();

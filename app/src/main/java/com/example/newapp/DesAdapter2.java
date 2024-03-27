@@ -45,15 +45,13 @@ public class DesAdapter2 extends ArrayAdapter {
         TextView date_start = convertView.findViewById(R.id.start_datez);
         TextView date_end = convertView.findViewById(R.id.end_datez);
 
-        //Ket noi den Cloud
-
 
 
         Destination des1 = (Destination) getItem(position);
         des.setText(String.format("%s", des1.getTour_name()));
-        desc.setText(String.format("Description =  %s", des1.getDescriptions()));
-        price.setText(String.format("price: %.2f", des1.getPrice()));
-        amount.setText(String.format("amount: %d", des1.getAmount()));
+        desc.setText(String.format("%s", des1.getDescriptions()));
+        price.setText(String.format("price: %.2f$", des1.getPrice()));
+        amount.setText(String.format("available: %d", des1.getAmount()));
         date_start.setText(String.format("start: %s", des1.getStart_date()));
         date_end.setText(String.format("end: %s", des1.getEnd_date()));
         Glide.with(ctx)

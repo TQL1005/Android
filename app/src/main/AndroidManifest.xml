@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.newapp" >
+    package="com.example.newapp">
 
     <application
         android:allowBackup="true"
@@ -12,27 +12,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Newapp"
-        tools:targetApi="31" >
+        tools:targetApi="31">
+        <activity
+            android:name=".Full_Details_Tour"
+            android:exported="false" />
         <activity
             android:name=".MyTour"
-            android:exported="false"
-             />
+            android:exported="false" />
         <activity
             android:name=".Term"
-            android:exported="false"
-             />
+            android:exported="false" />
         <activity
             android:name=".Follow__Us"
-            android:exported="false"
-             />
+            android:exported="false" />
         <activity
             android:name=".CustomerSupport"
-            android:exported="false"
-            />
+            android:exported="false" />
         <activity
             android:name=".ChangePwd"
-            android:exported="false"
-            />
+            android:exported="false" />
         <activity
             android:name=".Admin_feedback"
             android:exported="false" />
@@ -71,6 +69,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

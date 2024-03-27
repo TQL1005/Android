@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -36,6 +37,15 @@ public class Main extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            Destination destination = (Destination) desAdapter.getItem(position);
+            String destinationName = destination.getDestinations(); // Example: Get the destination name
+            Intent it = new Intent(Main.this, Detail_Tour.class);
+            it.putExtra("destinationName", destinationName);
+            startActivity(it); // Start activity with the intent containing data
+        });
+
     }
 
     @Override

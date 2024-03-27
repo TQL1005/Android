@@ -15,7 +15,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/imageView4z">
+        android:layout_below="@id/imageView4z"
+        android:layout_margin="10dp"
+        >
 
         <TextView
             android:id="@+id/destinationz"
@@ -23,6 +25,7 @@
             android:layout_height="wrap_content"
             android:text="destination"
             android:textStyle="bold|italic"
+            android:textSize="15sp"
             tools:ignore="HardcodedText" />
 
         <TextView
@@ -31,13 +34,14 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/destinationz"
             android:text="description"
+            android:layout_marginTop="7dp"
             tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/pricez"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="5dp"
             android:layout_toRightOf="@id/destinationz"
             android:text="price"
             tools:ignore="HardcodedText" />
@@ -46,7 +50,7 @@
             android:id="@+id/amountz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="5dp"
             android:layout_toRightOf="@id/pricez"
             android:text="amount"
             tools:ignore="HardcodedText" />
@@ -55,8 +59,8 @@
             android:id="@+id/start_datez"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_below="@id/descriptionz"
+            android:layout_marginTop="5dp"
             android:text="start_date"
             tools:ignore="HardcodedText" />
 
@@ -64,9 +68,9 @@
             android:id="@+id/end_datez"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="20dp"
             android:layout_below="@id/descriptionz"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="5dp"
             android:text="end_date"
             tools:ignore="HardcodedText" />
     </RelativeLayout>

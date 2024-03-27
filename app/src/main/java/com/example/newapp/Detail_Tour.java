@@ -26,21 +26,46 @@ public class Detail_Tour extends AppCompatActivity {
 
         Intent intent = getIntent();
         String item = intent.getStringExtra("item");
+        String desName = intent.getStringExtra("destinationName");
 
         ListView listView = findViewById(R.id.listView_detail_tour);
-
         DatabaseHelper dbHelper = new DatabaseHelper(this);
-        ArrayList<Destination> arrayList = dbHelper.getDesForDetail(item);
-        DesAdapter2 desAdapter = new DesAdapter2(this,R.layout.list_item2,arrayList);
+        ArrayList<Destination> arrayList;
+
+        if (item == null) {
+            arrayList = dbHelper.getDesForDetail(desName);
+        } else {
+            arrayList = dbHelper.getDesForDetail(item);
+        }
+
+        DesAdapter2 desAdapter = new DesAdapter2(this, R.layout.list_item2, arrayList);
         listView.setAdapter(desAdapter);
+
         TextView countTextView = findViewById(R.id.Count);
-        countTextView.setText(String.valueOf(arrayList.size())+" Services");
+        countTextView.setText(arrayList.size() + " Services");
 
         listView.setOnItemClickListener((parent, view, position, id) -> {
-            Destination destination = (Destination) desAdapter.getItem(position);
-            String destinationName = destination.getDestinations(); // Example: Get the destination name
-            Toast.makeText(this, destinationName, Toast.LENGTH_SHORT).show();
+            Destination destination = arrayList.get(position);
+            String destinationName = destination.getDestinations();
+            String tourName = destination.getTour_name();
+            double tourPrice = destination.getPrice();
+            String tourDescription = destination.getDescriptions();
+            String tourImage = destination.getPic1();
+
+            Intent fullDetailsIntent = new Intent(Detail_Tour.this, Full_Details_Tour.class);
+            fullDetailsIntent.putExtra("destinationName", destinationName);
+            fullDetailsIntent.putExtra("tourName", tourName);
+            fullDetailsIntent.putExtra("tourPrice", tourPrice);
+            fullDetailsIntent.putExtra("tourDescription", tourDescription);
+            fullDetailsIntent.putExtra("tourImage", tourImage);
+            startActivity(fullDetailsIntent);
         });
+
+
+
+
+
+
 
         searchBar = findViewById(R.id.Start_detail_tour);
         searchBar.setOnClickListener(new View.OnClickListener() {

@@ -5,6 +5,34 @@ public class Destination {
     String Descriptions;
     Double price;
     String pic1;
+    String pic2;
+    String pic3;
+
+    public String getPic2() {
+        return pic2;
+    }
+
+    public void setPic2(String pic2) {
+        this.pic2 = pic2;
+    }
+
+    public String getPic3() {
+        return pic3;
+    }
+
+    public void setPic3(String pic3) {
+        this.pic3 = pic3;
+    }
+
+    public String getPic4() {
+        return pic4;
+    }
+
+    public void setPic4(String pic4) {
+        this.pic4 = pic4;
+    }
+
+    String pic4;
     String start_date;
     String end_date;
 
@@ -24,6 +52,12 @@ public class Destination {
         this.setDescriptions(description);
         this.setPrice(price);
         this.setPic1(img);
+    }
+
+    public Destination(String img1, String img2, String img3) {
+        this.setPic2(img1);
+        this.setPic3(img2);
+        this.setPic4(img3);
     }
 
     public String getStart_date() {
