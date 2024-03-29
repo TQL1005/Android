@@ -6,11 +6,14 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Build;
+import android.util.Log;
 import android.util.Pair;
 import android.widget.TextView;
 
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -59,6 +62,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+
+
     // SQL code
     public boolean insertDataUser(String username,String password){
         SQLiteDatabase Databasename = this.getWritableDatabase();
@@ -89,6 +94,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
         }else return false;
     }
+
+
 
     public boolean checkUser(String username, String pwd) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -183,36 +190,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return list;
     }
 
-//    public Pair<ArrayList<Destination>, ArrayList<Tour>> getDesAndToursForDetail(String item) {
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        ArrayList<Destination> destinationList = new ArrayList<>();
-//        ArrayList<Tour> tourList = new ArrayList<>();
-//        // Use selectionArgs to pass the item value into the query safely
-//        String[] selectionArgs = {item};
-//        Cursor cursor = db.rawQuery("SELECT * FROM destinations WHERE destination = ?", selectionArgs);
-//        Cursor cursor2 = db.rawQuery("SELECT * FROM tours WHERE ID_destination = (SELECT ID FROM destinations WHERE destination = ? )", selectionArgs);
-//        while(cursor.moveToNext()) {
-//            String destination = cursor.getString(cursor.getColumnIndex("destination"));
-//            String description = cursor.getString(cursor.getColumnIndex("description"));
-//            Double price = cursor.getDouble(cursor.getColumnIndex("price"));
-//            String img = cursor.getString(cursor.getColumnIndex("pic1"));
-//            Destination destinationItem = new Destination(destination, description, price, img);
-//            destinationList.add(destinationItem);
-//        }
-//        while(cursor2.moveToNext()) {
-//            String tour_name = cursor2.getString(cursor2.getColumnIndex("tour_name"));
-//            String start_date = cursor2.getString(cursor2.getColumnIndex("start_date"));
-//            String end_date = cursor2.getString(cursor2.getColumnIndex("end_date"));
-//            int amount = cursor2.getInt(cursor2.getColumnIndex("amount"));
-//            Tour tourItem = new Tour(tour_name, start_date, end_date, amount);
-//            tourList.add(tourItem);
-//        }
-//
-//        cursor.close(); // Close the cursor when finished
-//        cursor2.close(); // Close the second cursor when finished
-//        return new Pair<>(destinationList, tourList);
-//    }
-
 
 
 
@@ -232,6 +209,48 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public String getUser() {
         return user;
+    }
+
+
+    @SuppressLint("Range")
+    public boolean checkAmount(Integer amount, String tour_name) {
+        SQLiteDatabase myDB = this.getWritableDatabase();
+        Cursor cursor = null;
+        try {
+            cursor = myDB.rawQuery("SELECT amount FROM tours WHERE tour_name = ?", new String[]{tour_name});
+            if (cursor != null && cursor.moveToFirst()) {
+                int availableAmount = cursor.getInt(cursor.getColumnIndex("amount"));
+                return availableAmount >= amount;
+            }
+        } catch (Exception e) {
+            // Handle any exceptions (e.g., database query failure)
+            Log.e("Database", "Error checking amount", e);
+        } finally {
+            // Close the cursor and database connection
+            if (cursor != null) {
+                cursor.close();
+            }
+            myDB.close();
+        }
+        return false;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void saveBooking(String username, String tourName, int people, double total) {
+        SQLiteDatabase Databasename = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        Cursor cursor = Databasename.rawQuery("SELECT users.ID AS user_id, tours.ID AS tour_id FROM users JOIN tours ON users.username = ? AND tours.tour_name = ?", new String[]{username, tourName});
+        while (cursor.moveToNext()) {
+            @SuppressLint("Range") String ID_userName = cursor.getString(cursor.getColumnIndex("user_id"));
+            @SuppressLint("Range") String ID_tourName = cursor.getString(cursor.getColumnIndex("tour_id"));
+            contentValues.put("ID_tours", ID_tourName);
+            contentValues.put("ID_users", ID_userName);
+            contentValues.put("bill_date", java.time.LocalDate.now().toString());
+            contentValues.put("bill_money", total);
+            contentValues.put("amount", people);
+            Databasename.insert("bill", null, contentValues);
+            Databasename.execSQL("UPDATE tours SET amount = amount - ? WHERE ID = ?", new Object[]{people, ID_tourName});
+        }
     }
 
     public void setUser(String user) {

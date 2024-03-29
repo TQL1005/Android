@@ -169,6 +169,25 @@
                         android:textStyle="bold|italic"
                         android:textSize="20sp" />
                 </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/people"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="People x "
+                        android:textSize="17dp" />
+
+                    <EditText
+                        android:id="@+id/people_amount1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="17dp" />
+                </LinearLayout>
                 <Button
                     android:id="@+id/Booknow"
                     android:layout_width="match_parent"

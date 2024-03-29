@@ -51,6 +51,7 @@ public class Detail_Tour extends AppCompatActivity {
             double tourPrice = destination.getPrice();
             String tourDescription = destination.getDescriptions();
             String tourImage = destination.getPic1();
+            String date = destination.getStart_date();
 
             Intent fullDetailsIntent = new Intent(Detail_Tour.this, Full_Details_Tour.class);
             fullDetailsIntent.putExtra("destinationName", destinationName);
@@ -58,12 +59,9 @@ public class Detail_Tour extends AppCompatActivity {
             fullDetailsIntent.putExtra("tourPrice", tourPrice);
             fullDetailsIntent.putExtra("tourDescription", tourDescription);
             fullDetailsIntent.putExtra("tourImage", tourImage);
+            fullDetailsIntent.putExtra("date", date);
             startActivity(fullDetailsIntent);
         });
-
-
-
-
 
 
 
