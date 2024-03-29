@@ -13,7 +13,9 @@ public class CustomerSupport extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_support);
+        getSupportActionBar().hide();
         Intent intent = getIntent();
+
         String username = intent.getStringExtra("username");
         Button btn1 = (Button) findViewById(R.id.Back1);
         btn1.setOnClickListener(new View.OnClickListener() {

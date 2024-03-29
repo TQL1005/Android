@@ -18,14 +18,14 @@ import java.util.Map;
 public class Profile extends AppCompatActivity {
     DatabaseHelper dbHelper;
     TextView eUsername;
-    private static Integer temp = 0;
+    static Integer temp = 0;
     float x11, x21, y11, y21;
     String username;
     private Button btn,btn1,btn2,btn3,btn4,btn5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
+
         setContentView(R.layout.activity_profile);
         getSupportActionBar().hide();
 //        username = intent.getStringExtra("username");
@@ -35,7 +35,7 @@ public class Profile extends AppCompatActivity {
         eUsername = findViewById(R.id.name);
         eUsername.setText(username);
 
-        //Ket noi den Cloud
+//        Ket noi den Cloud
 //        if (temp == 0){
 //            initConfig();
 //        }

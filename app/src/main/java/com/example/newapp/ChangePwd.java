@@ -22,6 +22,7 @@ public class ChangePwd extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
+        getSupportActionBar().hide();
         username = intent.getStringExtra("username");
         setContentView(R.layout.activity_change_pwd);
         dbHelper = new DatabaseHelper(this);

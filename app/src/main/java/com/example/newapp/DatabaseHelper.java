@@ -17,6 +17,7 @@ import androidx.annotation.RequiresApi;
 
 import org.mindrot.jbcrypt.BCrypt;
 
+import java.lang.reflect.Array;
 import java.util.AbstractCollection;
 import java.util.ArrayList;
 
@@ -236,13 +237,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
+    @SuppressLint("Range")
     public void saveBooking(String username, String tourName, int people, double total) {
         SQLiteDatabase Databasename = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         Cursor cursor = Databasename.rawQuery("SELECT users.ID AS user_id, tours.ID AS tour_id FROM users JOIN tours ON users.username = ? AND tours.tour_name = ?", new String[]{username, tourName});
         while (cursor.moveToNext()) {
-            @SuppressLint("Range") String ID_userName = cursor.getString(cursor.getColumnIndex("user_id"));
-            @SuppressLint("Range") String ID_tourName = cursor.getString(cursor.getColumnIndex("tour_id"));
+            String ID_userName = cursor.getString(cursor.getColumnIndex("user_id"));
+            String ID_tourName = cursor.getString(cursor.getColumnIndex("tour_id"));
             contentValues.put("ID_tours", ID_tourName);
             contentValues.put("ID_users", ID_userName);
             contentValues.put("bill_date", java.time.LocalDate.now().toString());
@@ -251,6 +253,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Databasename.insert("bill", null, contentValues);
             Databasename.execSQL("UPDATE tours SET amount = amount - ? WHERE ID = ?", new Object[]{people, ID_tourName});
         }
+    }
+
+
+    public void deleteBooked(String username, String tourName) {
+        SQLiteDatabase Databasename = this.getWritableDatabase();
+        Databasename.execSQL("DELETE FROM bill WHERE ID_users = (SELECT ID FROM users WHERE username = ?) AND ID_tours = (SELECT ID FROM tours WHERE tour_name = ?)", new String[]{username, tourName});
+    }
+
+
+    @SuppressLint("Range")
+    public ArrayList<String> getBooked(String username) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<String> list = new ArrayList<>();
+        Cursor cursorBill = db.rawQuery("SELECT * FROM bill WHERE ID_users = (SELECT ID FROM users WHERE username = ?)", new String[]{username});
+        while (cursorBill.moveToNext()) {
+            String billDate = cursorBill.getString(cursorBill.getColumnIndex("bill_date"));
+            String billMoney = cursorBill.getString(cursorBill.getColumnIndex("bill_money"));
+            String billAmount = cursorBill.getString(cursorBill.getColumnIndex("amount"));
+            String tourName = null,tourStart = null,tourId = null;
+            Cursor cursorTour = db.rawQuery("SELECT * FROM tours WHERE ID = ?", new String[]{cursorBill.getString(cursorBill.getColumnIndex("ID_tours"))});
+            if (cursorTour.moveToFirst()) {
+                tourName = cursorTour.getString(cursorTour.getColumnIndex("tour_name"));
+                tourStart = cursorTour.getString(cursorTour.getColumnIndex("start_date"));
+            }
+            String tourItem =
+                     tourName + "\n"
+                    + billDate + "\n"
+                    + "- Amount: " + billAmount + "people" +"\n"
+                    + "- Total: " + billMoney + "$" + "\n"
+                    + "- Start Date: " + tourStart + "\n";
+
+            list.add(tourItem);
+            cursorTour.close();
+        }
+        cursorBill.close();
+        return list;
     }
 
     public void setUser(String user) {

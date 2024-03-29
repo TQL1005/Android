@@ -13,6 +13,8 @@ public class Term extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_term);
+        getSupportActionBar().hide();
+
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
         Button btn1 = (Button) findViewById(R.id.Back4);

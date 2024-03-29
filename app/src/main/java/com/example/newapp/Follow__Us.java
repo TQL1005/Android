@@ -14,6 +14,7 @@ public class Follow__Us extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_follow_us2);
         Intent intent = getIntent();
+        getSupportActionBar().hide();
         String username = intent.getStringExtra("username");
         Button btn1 = (Button) findViewById(R.id.Back2);
         btn1.setOnClickListener(new View.OnClickListener() {

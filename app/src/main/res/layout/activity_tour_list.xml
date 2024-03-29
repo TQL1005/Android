@@ -24,8 +24,7 @@
         android:layout_height="80dp"
         android:focusableInTouchMode="true"
         android:orientation="vertical"
-        app:iconifiedByDefault="false"
-        >
+        app:iconifiedByDefault="false">
 
         <!-- Your content here -->
 
@@ -43,7 +42,6 @@
     </LinearLayout>
 
 
-        />
     <ListView
         android:id="@+id/listView1"
         android:layout_width="match_parent"

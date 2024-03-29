@@ -22,7 +22,7 @@ import java.util.Map;
 public class DesAdapter extends ArrayAdapter {
     private Context ctx;
     private int mResources;
-    private static Integer temp = 0;
+    static Integer temp = 0;
     ArrayList<Destination> desList;
     public DesAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Destination> objects) {
         super(context, resource, objects);
