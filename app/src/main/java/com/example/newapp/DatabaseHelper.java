@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
 import android.util.Log;
 import android.util.Pair;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -44,7 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("CREATE TABLE bill (ID INTEGER PRIMARY KEY AUTOINCREMENT, ID_tours INTEGER, ID_users INTEGER, bill_date DATE, bill_money DATE, amount INTEGER,isDeleted boolean DEFAULT 0, FOREIGN KEY (ID_tours) REFERENCES tours(ID), FOREIGN KEY (ID_users) REFERENCES users(ID))");
 
         // Create the "feedback" table with foreign key constraints
-        sqLiteDatabase.execSQL("CREATE TABLE feedback (ID INTEGER PRIMARY KEY AUTOINCREMENT, ID_users INTEGER, ID_destination INTEGER, feedback TEXT, date_feedback DATE,isDeleted boolean DEFAULT 0 , FOREIGN KEY (ID_users) REFERENCES users(ID), FOREIGN KEY (ID_destination) REFERENCES destinations(ID))");
+        sqLiteDatabase.execSQL("CREATE TABLE feedback (ID INTEGER PRIMARY KEY AUTOINCREMENT, ID_users INTEGER, ID_tours INTEGER, feedback TEXT, date_feedback DATE,isDeleted boolean DEFAULT 0 , FOREIGN KEY (ID_users) REFERENCES users(ID), FOREIGN KEY (ID_tours) REFERENCES tours(ID))");
     }
 
 
@@ -57,7 +58,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS tours");
         db.execSQL("DROP TABLE IF EXISTS bill");
         db.execSQL("DROP TABLE IF EXISTS feedback");
-
         // Recreate the tables by calling onCreate
         onCreate(db);
     }
@@ -291,8 +291,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return list;
     }
 
+
+    public void WriteFeedBack(String username, String tourName, String feedback){
+        SQLiteDatabase Databasename = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        Cursor cursor = Databasename.rawQuery("SELECT users.ID AS user_id, tours.ID AS tour_id FROM users JOIN tours ON users.username = ? AND tours.tour_name = ?", new String[]{username, tourName});
+        while (cursor.moveToNext()){
+            String ID_userName = cursor.getString(cursor.getColumnIndex("user_id"));
+            String ID_tourName = cursor.getString(cursor.getColumnIndex("tour_id"));
+            contentValues.put("ID_tours", ID_tourName);
+            contentValues.put("ID_users", ID_userName);
+            contentValues.put("date_feedback", java.time.LocalDate.now().toString());
+            contentValues.put("feedback", feedback);
+            Databasename.insert("feedback", null, contentValues);
+        }
+    }
+
+
     public void setUser(String user) {
-        this.user = user;
+        DatabaseHelper.user = user;
         System.out.println("User set to: " + this.user);
     }
 

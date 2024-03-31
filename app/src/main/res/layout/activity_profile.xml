@@ -62,37 +62,42 @@
             android:backgroundTint="#7EC8E3"
             android:text="My Booking" />
 
+
         <Button
+            android:id="@+id/Feedback"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:backgroundTint="#7EC8E3"
-            android:text="Customer Support"
-            android:id="@+id/customer_support" />
-
+            android:text="Feedback" />
 
         <Button
+            android:id="@+id/customer_support"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:backgroundTint="#7EC8E3"
-            android:text="Follow Us"
+            android:text="Customer Support" />
+
+
+        <Button
             android:id="@+id/follow_us"
-            />
-
-        <Button
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:backgroundTint="#7EC8E3"
-            android:text="@string/terms_amp_conditions"
+            android:text="Follow Us" />
+
+        <Button
             android:id="@+id/terms_amp_conditions"
-            />
-
-        <Button
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:backgroundTint="#7EC8E3"
-            android:text="Logout"
+            android:text="@string/terms_amp_conditions" />
+
+        <Button
             android:id="@+id/Logout"
-            />
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:backgroundTint="#7EC8E3"
+            android:text="Logout" />
 
     </LinearLayout>
 

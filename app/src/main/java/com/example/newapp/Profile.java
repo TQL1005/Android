@@ -21,7 +21,7 @@ public class Profile extends AppCompatActivity {
     static Integer temp = 0;
     float x11, x21, y11, y21;
     String username;
-    private Button btn,btn1,btn2,btn3,btn4,btn5;
+    private Button btn,btn1,btn2,btn3,btn4,btn5,btn6;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,6 +103,13 @@ public class Profile extends AppCompatActivity {
             }
         });
 
+        btn6 = (Button) findViewById(R.id.Feedback);
+        btn6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Feedback();
+            }
+        });
     }
 
     private void initConfig() {
@@ -150,6 +157,13 @@ public class Profile extends AppCompatActivity {
         intent.putExtra("username", username);
         Profile.this.startActivity(intent);
     }
+
+    public void Feedback(){
+        Intent intent = new Intent(this,Feedback.class);
+        intent.putExtra("username", username);
+        Profile.this.startActivity(intent);
+    }
+
     @Override
     public boolean onTouchEvent(MotionEvent touchEvent) {
         switch (touchEvent.getAction()) {
