@@ -8,4 +8,11 @@
     <string name="enter_your_password">Enter your password</string>
     <string name="confirm_your_password">Confirm your password</string>
     <string name="next" />
+
+    <string-array name="statistics_types">
+        <item>User</item>
+        <item>Date</item>
+        <item>Total Cost</item>
+    </string-array>
+
 </resources>

@@ -475,7 +475,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM bill WHERE ID = ?", new String[]{String.valueOf(billId)});
     }
 
-    public boolean updateBill(int billId, int tourId, int userId, String billDate, String billMoney, int amount) {
+    public boolean updateBill(int billId, int tourId, int userId, String billDate, int billMoney, int amount) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("ID_tours", tourId);
@@ -487,7 +487,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return rowsAffected > 0;
     }
 
-    public boolean addBill(int tourId, int userId, String billDate, String billMoney, int amount) {
+    public boolean addBill(int tourId, int userId, String billDate, int billMoney, int amount) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("ID_tours", tourId);
@@ -559,6 +559,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } finally {
             db.endTransaction();
         }
+    }
+
+    // Method to get all bills sorted by User ID
+    public Cursor getBillsSortedByUser() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM bill WHERE isDeleted = 0 ORDER BY ID_users ASC";
+        return db.rawQuery(query, null);
+    }
+
+//    // Method to get all bills sorted by Date
+//    public Cursor getBillsSortedByDate() {
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        String query = "SELECT * FROM bill WHERE isDeleted = 0 ORDER BY bill_date ASC";
+//        return db.rawQuery(query, null);
+//    }
+    public Cursor getBillsSortedByDate() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM bill WHERE isDeleted = 0 ORDER BY CAST(SUBSTR(bill_date, INSTR(bill_date, '/') + 1) AS INTEGER), CAST(SUBSTR(bill_date, 1, INSTR(bill_date, '/') - 1) AS INTEGER)";
+        return db.rawQuery(query, null);
+    }
+
+
+    // Method to get all bills sorted by Total Cost (assuming 'amount' represents this)
+    public Cursor getBillsSortedByTotalCost() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM bill WHERE isDeleted = 0 ORDER BY bill_money DESC";
+        return db.rawQuery(query, null);
     }
 
 }

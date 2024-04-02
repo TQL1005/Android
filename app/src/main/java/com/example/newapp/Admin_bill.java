@@ -128,8 +128,9 @@ public class Admin_bill extends AppCompatActivity {
                 row.addView(tourIdTextView);
                 row.addView(userIdTextView);
                 row.addView(billDateTextView);
-                row.addView(billMoneyTextView);
                 row.addView(amountTextView);
+                row.addView(billMoneyTextView);
+
                 row.addView(actionLayout);
 
                 billTable.addView(row);
@@ -175,10 +176,10 @@ public class Admin_bill extends AppCompatActivity {
         int tourId = Integer.parseInt(tourIdEditText.getText().toString().trim());
         int userId = Integer.parseInt(userIdEditText.getText().toString().trim());
         String billDate = billDateEditText.getText().toString().trim();
-        String billMoney = billMoneyEditText.getText().toString().trim();
+        int billMoney = Integer.parseInt(billMoneyEditText.getText().toString().trim());
         int amount = Integer.parseInt(amountEditText.getText().toString().trim());
 
-        boolean isInserted = dbHelper.addBill(tourId, userId, billDate, billMoney, amount);
+        boolean isInserted = dbHelper.addBill(tourId, userId, billDate,billMoney , amount);
 
         if (isInserted) {
             Toast.makeText(Admin_bill.this, "Bill added successfully", Toast.LENGTH_SHORT).show();
@@ -223,10 +224,10 @@ public class Admin_bill extends AppCompatActivity {
                 int newTourId = Integer.parseInt(editTourIdEditText.getText().toString());
                 int newUserId = Integer.parseInt(editUserIdEditText.getText().toString());
                 String newBillDate = editBillDateEditText.getText().toString();
-                String newBillMoney = editBillMoneyEditText.getText().toString();
+                int newBillMoney = Integer.parseInt(editBillMoneyEditText.getText().toString());
                 int newAmount = Integer.parseInt(editAmountEditText.getText().toString());
 
-                dbHelper.updateBill(billId, newTourId, newUserId, newBillDate, newBillMoney, newAmount);
+                dbHelper.updateBill(billId, newTourId, newUserId, newBillDate,newBillMoney ,newAmount );
                 editBillDialog.setVisibility(View.GONE);
                 refreshBillTable();
             }

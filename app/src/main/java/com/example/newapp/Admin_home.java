@@ -87,18 +87,32 @@ public class Admin_home extends AppCompatActivity {
         startActivity(intent);
     }
 
-
-    public void onExitClicked(View view) {
-        Button btn = (Button) findViewById(R.id.exitButton);
+    public void onIcon6Clicked(View view) {
+        ImageButton btn = (ImageButton) findViewById(R.id.icon6);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Main();
+                Statistics();
             }
         });
     }
-    public void Main(){
-        Intent intent = new Intent(this, Main.class);
+    public void Statistics(){
+        Intent intent = new Intent(this, Admin_statistics.class);
         startActivity(intent);
     }
+
+
+//    public void onExitClicked(View view) {
+//        Button btn = (Button) findViewById(R.id.exitButton);
+//        btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Main();
+//            }
+//        });
+//    }
+//    public void Main(){
+//        Intent intent = new Intent(this, Admin_home.class);
+//        startActivity(intent);
+//    }
 }

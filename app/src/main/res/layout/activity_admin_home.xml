@@ -152,19 +152,41 @@
                     android:text="Feedbacks"/>
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginBottom="20dp">
+
+                <ImageButton
+                    android:id="@+id/icon6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_statistics"
+                    android:contentDescription="user"
+                    android:background="@android:color/transparent"
+                    android:onClick="onIcon6Clicked"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="statistics"/>
+            </LinearLayout>
+
         </LinearLayout>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/exitButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="Return"
-        android:textSize="25dp"
-        android:onClick="onExitClicked"/>
+<!--    <Button-->
+<!--        android:id="@+id/exitButton"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_marginEnd="20dp"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        android:text="Return"-->
+<!--        android:textSize="25dp"-->
+<!--        android:onClick="onExitClicked"/>-->
 
 </RelativeLayout>
