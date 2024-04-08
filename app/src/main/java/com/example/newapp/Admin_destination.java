@@ -118,7 +118,8 @@ public class Admin_destination extends AppCompatActivity {
                 destinationTextView.setText(destination);
 
                 TextView descriptionTextView = new TextView(this);
-                descriptionTextView.setText(description);
+                String shortenedDes = description.length() > 7 ? description.substring(0, 7) + "..." : description;
+                descriptionTextView.setText(shortenedDes);
 
                 TextView priceTextView = new TextView(this);
                 priceTextView.setText(String.valueOf(price));
