@@ -74,10 +74,10 @@
             android:name=".Register"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".Admin_home"
             android:exported="false" />
         <activity
-            android:name=".Admin_home"
+            android:name=".Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

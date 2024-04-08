@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Feedback">
+    tools:context=".Feedback"
+    android:background="#E0FFFF">
 
     <Button
         android:id="@+id/Back5"
@@ -21,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/Back5"
-        android:background="#F2CECE"
+        android:background="#E0E0FF"
         android:layout_centerInParent="true"
         android:layout_marginTop="30dp"
         android:orientation="horizontal" />

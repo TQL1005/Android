@@ -53,6 +53,9 @@ public class Checkout extends AppCompatActivity {
         checkout.setOnClickListener(v -> {
             dbHelper.saveBooking(username, tourName, people, total);
             Toast.makeText(Checkout.this,"Success",Toast.LENGTH_LONG).show();
+            Intent intent1 = new Intent(Checkout.this, Main.class);
+            startActivity(intent1);
+            finish();
         });
 
 

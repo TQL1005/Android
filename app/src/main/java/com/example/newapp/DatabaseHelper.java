@@ -323,6 +323,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM users WHERE ID = ?", new String[]{String.valueOf(userId)});
     }
 
+    public int getUserRole(String username) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        int role = -1; // Default value indicating not found or error
+
+        // Prepare the query to get the role of the specified user
+        String query = "SELECT role FROM users WHERE username = ?";
+
+        // Execute the query
+        Cursor cursor = db.rawQuery(query, new String[]{username});
+
+        if (cursor.moveToFirst()) {
+            // If a row is returned, get the role from the cursor
+            role = cursor.getInt(cursor.getColumnIndex("role"));
+        }
+        cursor.close(); // Close the cursor
+        db.close(); // Close the database connection
+
+        return role;
+    }
+
+
+
     public boolean updateUser(int userId, String username, String password, String role, String phone) {
         SQLiteDatabase db = this.getWritableDatabase();
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
@@ -524,22 +546,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM feedback WHERE ID = ?", new String[]{String.valueOf(feedbackId)});
     }
 
-    public boolean updateFeedback(int feedbackId, int userId, int destinationId, String feedback, String dateFeedback) {
+    public boolean updateFeedback(int feedbackId, int userId, int tourId, String feedback, String dateFeedback) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("ID_users", userId);
-        values.put("ID_destination", destinationId);
+        values.put("ID_tours", tourId);
         values.put("feedback", feedback);
         values.put("date_feedback", dateFeedback);
         int rowsAffected = db.update("feedback", values, "ID = ?", new String[]{String.valueOf(feedbackId)});
         return rowsAffected > 0;
     }
 
-    public boolean addFeedback(int userId, int destinationId, String feedback, String dateFeedback) {
+    public boolean addFeedback(int userId, int tourId, String feedback, String dateFeedback) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("ID_users", userId);
-        values.put("ID_destination", destinationId);
+        values.put("ID_tours", tourId);
         values.put("feedback", feedback);
         values.put("date_feedback", dateFeedback);
         long result = db.insert("feedback", null, values);
@@ -587,5 +609,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String query = "SELECT * FROM bill WHERE isDeleted = 0 ORDER BY bill_money DESC";
         return db.rawQuery(query, null);
     }
+
+
 
 }

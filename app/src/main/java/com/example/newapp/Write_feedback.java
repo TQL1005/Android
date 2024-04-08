@@ -35,6 +35,9 @@ public class Write_feedback extends AppCompatActivity {
                 }else{
                     dbHelper.WriteFeedBack(username, tourName,feedbackText);
                     Toast.makeText(Write_feedback.this, "Feedback submitted", Toast.LENGTH_SHORT).show();
+                    Intent intent1 = new Intent(Write_feedback.this, Profile.class);
+                    startActivity(intent1);
+                    finish();
                 }
             }
         });

@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_border"
+    android:padding="16dp">
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="280dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/imageView4">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView4"
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/destination"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="destination"
-            android:textStyle="bold|italic"
+            android:text="Destination"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
             tools:ignore="HardcodedText" />
 
         <TextView
@@ -30,23 +34,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/destination"
-            android:text="description"
+            android:text="Description"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"
             tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_toRightOf="@id/destination"
-            android:text="price"
-            tools:ignore="HardcodedText" />
-
+            android:layout_below="@id/description"
+            android:text="Price"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            tools:ignore="HardcodedText"
+            android:layout_marginBottom="8dp" />
 
     </RelativeLayout>
 
-
 </RelativeLayout>
-
-
-

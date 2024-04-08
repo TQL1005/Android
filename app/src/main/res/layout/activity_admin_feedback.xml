@@ -48,7 +48,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DesID"
+                    android:text="TourID"
                     android:padding="8dp"
                     android:textStyle="bold"/>
 
@@ -102,7 +102,7 @@
             android:inputType="number"/>
 
         <EditText
-            android:id="@+id/desIdEditText"
+            android:id="@+id/tourIdEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Destination ID"
@@ -161,7 +161,7 @@
             android:inputType="number"/>
 
         <EditText
-            android:id="@+id/editDestinationIdEditText"
+            android:id="@+id/editTourIdEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Bill ID"
@@ -195,15 +195,15 @@
     </LinearLayout>
 
 
-<!--    <Button-->
-<!--        android:id="@+id/exitButton"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Return"-->
-<!--        android:textSize="25dp"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_alignParentEnd="true"-->
-<!--        android:layout_marginEnd="20dp"-->
-<!--        android:layout_marginBottom="20dp"/>-->
+    <Button
+        android:id="@+id/exitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Return"
+        android:textSize="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"/>
 
 </RelativeLayout>

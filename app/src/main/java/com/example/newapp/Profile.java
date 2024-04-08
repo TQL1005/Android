@@ -35,11 +35,33 @@ public class Profile extends AppCompatActivity {
         eUsername = findViewById(R.id.name);
         eUsername.setText(username);
 
+        Button adminButton = findViewById(R.id.adminbutton);
+        int userRole = dbHelper.getUserRole(username);
+
 //        Ket noi den Cloud
 //        if (temp == 0){
 //            initConfig();
 //        }
+        if (userRole == 0) {
+            adminButton.setVisibility(View.VISIBLE);
+        } else {
+            adminButton.setVisibility(View.GONE);
+        }
 
+        Button btnBack = findViewById(R.id.back_arrow);
+        btnBack.setOnClickListener(v -> {
+            Intent intent = new Intent(Profile.this,Main.class);
+            startActivity(intent);
+        });
+
+        adminButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Create an Intent to start the AdminActivity
+                Intent intent = new Intent(Profile.this, Admin_home.class);
+                startActivity(intent);
+            }
+        });
 
 
 

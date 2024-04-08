@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Write_feedback">
+    tools:context=".Write_feedback"
+    android:background="#E0FFFF">
 
     <EditText
         android:id="@+id/feedback"
@@ -13,7 +14,7 @@
         android:layout_marginTop="30dp"
         android:hint="Write your feedback here"
         android:padding="10dp"
-        android:background="#F2CECE"
+        android:background="#E0E0FF"
         android:layout_centerInParent="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"

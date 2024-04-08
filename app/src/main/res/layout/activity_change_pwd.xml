@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChangePwd">
+    tools:context=".ChangePwd"
+    android:background="#E0FFFF">
 
     <LinearLayout
         android:layout_width="wrap_content"

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Main">
+    tools:context=".Main"
+    android:background="#E0FFFF">
 
     <Button
         android:id="@+id/back_arrow1"
@@ -21,36 +22,31 @@
     <LinearLayout
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:focusableInTouchMode="true"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginHorizontal="24dp"
         android:orientation="vertical">
-        <!-- Your content here -->
 
         <TextView
             android:id="@+id/text"
-            android:layout_width="200dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
             android:text="@string/travel_the_world_made_simple"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:fontFamily="@font/archivo_bold"
-            app:textAllCaps="true" />
-
+            android:textAllCaps="true" />
 
         <SearchView
             android:id="@+id/Start_detail_tour"
-            android:layout_width="343dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:background="@drawable/search__view_bg"
-            android:clickable="false"
             android:hint="Start..."
-            android:orientation="horizontal"
             app:iconifiedByDefault="false" />
-
 
     </LinearLayout>
 

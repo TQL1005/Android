@@ -1,9 +1,11 @@
 package com.example.newapp;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -53,6 +55,12 @@ public class Admin_statistics extends AppCompatActivity {
 
         // Default: sort by user
         refreshDataSortedBy("user");
+
+        Button btnBack = findViewById(R.id.exitButton);
+        btnBack.setOnClickListener(v -> {
+            Intent intent = new Intent(Admin_statistics.this,Admin_home.class);
+            startActivity(intent);
+        });
     }
 
     private void refreshDataSortedBy(String sortCriteria) {

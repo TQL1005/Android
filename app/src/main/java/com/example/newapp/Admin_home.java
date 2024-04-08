@@ -15,6 +15,13 @@ public class Admin_home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_home);
+
+        Button btnBack = findViewById(R.id.exitButton);
+        btnBack.setOnClickListener(v -> {
+            Intent intent = new Intent(Admin_home.this,Main.class);
+            startActivity(intent);
+        });
+
     }
 
     public void onIcon1Clicked(View view) {

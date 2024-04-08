@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -19,14 +20,14 @@ import android.widget.Toast;
 public class Admin_feedback extends AppCompatActivity {
 
     LinearLayout feedbackForm;
-    EditText idEditText, userIdEditText, destinationIdEditText, feedbackEditText, dateFeedbackEditText;
+    EditText idEditText, userIdEditText, tourIdEditText, feedbackEditText, dateFeedbackEditText;
     Button addFeedbackButton, addFeedbackSubmitButton, addFeedbackCancelButton;
 
     DatabaseHelper dbHelper;
     TableLayout feedbackTable;
 
     LinearLayout editFeedbackDialog;
-    EditText editIdEditText, editUserIdEditText, editDestinationIdEditText, editFeedbackEditText, editDateFeedbackEditText;
+    EditText editIdEditText, editUserIdEditText, editTourIdEditText, editFeedbackEditText, editDateFeedbackEditText;
     Button editFeedbackSubmitButton, editFeedbackCancelButton;
     int editingFeedbackId;
 
@@ -38,7 +39,7 @@ public class Admin_feedback extends AppCompatActivity {
         feedbackForm = findViewById(R.id.feedbackForm);
         idEditText = findViewById(R.id.idEditText);
         userIdEditText = findViewById(R.id.userIdEditText);
-        destinationIdEditText = findViewById(R.id.desIdEditText);
+        tourIdEditText = findViewById(R.id.tourIdEditText);
         feedbackEditText = findViewById(R.id.feedbackEditText);
         dateFeedbackEditText = findViewById(R.id.dateEditText);
         addFeedbackButton = findViewById(R.id.addFeedbackButton);
@@ -51,7 +52,7 @@ public class Admin_feedback extends AppCompatActivity {
         editFeedbackDialog = findViewById(R.id.editFeedbackDialog);
         editIdEditText = findViewById(R.id.editIdEditText);
         editUserIdEditText = findViewById(R.id.editUserIdEditText);
-        editDestinationIdEditText = findViewById(R.id.editDestinationIdEditText);
+        editTourIdEditText = findViewById(R.id.editTourIdEditText);
         editFeedbackEditText = findViewById(R.id.editFeedbackEditText);
         editDateFeedbackEditText = findViewById(R.id.editDateEditText);
         editFeedbackSubmitButton = findViewById(R.id.editFeedbackSubmitButton);
@@ -78,11 +79,17 @@ public class Admin_feedback extends AppCompatActivity {
             public void onClick(View v) {
                 idEditText.setText("");
                 userIdEditText.setText("");
-                destinationIdEditText.setText("");
+                tourIdEditText.setText("");
                 feedbackEditText.setText("");
                 dateFeedbackEditText.setText("");
                 feedbackForm.setVisibility(View.GONE);
             }
+        });
+
+        Button btnBack = findViewById(R.id.exitButton);
+        btnBack.setOnClickListener(v -> {
+            Intent intent = new Intent(Admin_feedback.this,Admin_home.class);
+            startActivity(intent);
         });
 
     }
@@ -94,7 +101,7 @@ public class Admin_feedback extends AppCompatActivity {
             do {
                 int id = cursor.getInt(cursor.getColumnIndex("ID"));
                 int userId = cursor.getInt(cursor.getColumnIndex("ID_users"));
-                int destinationId = cursor.getInt(cursor.getColumnIndex("ID_destination"));
+                int tourId = cursor.getInt(cursor.getColumnIndex("ID_tours"));
                 String feedback = cursor.getString(cursor.getColumnIndex("feedback"));
                 String dateFeedback = cursor.getString(cursor.getColumnIndex("date_feedback"));
 
@@ -106,11 +113,13 @@ public class Admin_feedback extends AppCompatActivity {
                 TextView userIdTextView = new TextView(this);
                 userIdTextView.setText(String.valueOf(userId));
 
-                TextView destinationIdTextView = new TextView(this);
-                destinationIdTextView.setText(String.valueOf(destinationId));
+                TextView tourIdTextView = new TextView(this);
+                tourIdTextView.setText(String.valueOf(tourId));
 
                 TextView feedbackTextView = new TextView(this);
-                feedbackTextView.setText(feedback.substring(0,7)+"...");
+                String shortenedFeedback = feedback.length() > 7 ? feedback.substring(0, 7) + "..." : feedback;
+                feedbackTextView.setText(shortenedFeedback);
+
 
                 TextView dateFeedbackTextView = new TextView(this);
                 dateFeedbackTextView.setText(dateFeedback);
@@ -120,7 +129,7 @@ public class Admin_feedback extends AppCompatActivity {
 
                 row.addView(idTextView);
                 row.addView(userIdTextView);
-                row.addView(destinationIdTextView);
+                row.addView(tourIdTextView);
                 row.addView(feedbackTextView);
                 row.addView(dateFeedbackTextView);
                 row.addView(actionLayout);
@@ -167,21 +176,21 @@ public class Admin_feedback extends AppCompatActivity {
 
     private void addFeedbackToDatabase() {
         String userId = userIdEditText.getText().toString().trim();
-        String destinationId = destinationIdEditText.getText().toString().trim();
+        String tourId = tourIdEditText.getText().toString().trim();
         String feedback = feedbackEditText.getText().toString().trim();
         String dateFeedback = dateFeedbackEditText.getText().toString().trim();
 
-        if (userId.isEmpty() || destinationId.isEmpty() || feedback.isEmpty() || dateFeedback.isEmpty()) {
+        if (userId.isEmpty() || tourId.isEmpty() || feedback.isEmpty() || dateFeedback.isEmpty()) {
             Toast.makeText(Admin_feedback.this, "Please fill in missing field", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        boolean isInserted = dbHelper.addFeedback(Integer.parseInt(userId), Integer.parseInt(destinationId), feedback, dateFeedback);
+        boolean isInserted = dbHelper.addFeedback(Integer.parseInt(userId), Integer.parseInt(tourId), feedback, dateFeedback);
 
         if (isInserted) {
             Toast.makeText(Admin_feedback.this, "Feedback added successfully", Toast.LENGTH_SHORT).show();
             userIdEditText.setText("");
-            destinationIdEditText.setText("");
+            tourIdEditText.setText("");
             feedbackEditText.setText("");
             dateFeedbackEditText.setText("");
             refreshFeedbackTable();
@@ -195,13 +204,13 @@ public class Admin_feedback extends AppCompatActivity {
         Cursor feedbackCursor = dbHelper.getFeedbackById(feedbackId);
         if (feedbackCursor != null && feedbackCursor.moveToFirst()) {
             int userId = feedbackCursor.getInt(feedbackCursor.getColumnIndex("ID_users"));
-            int destinationId = feedbackCursor.getInt(feedbackCursor.getColumnIndex("ID_destination"));
+            int tourId = feedbackCursor.getInt(feedbackCursor.getColumnIndex("ID_tours"));
             String feedback = feedbackCursor.getString(feedbackCursor.getColumnIndex("feedback"));
             String dateFeedback = feedbackCursor.getString(feedbackCursor.getColumnIndex("date_feedback"));
 
 //            editIdEditText.setText(String.valueOf(feedbackId));
             editUserIdEditText.setText(String.valueOf(userId));
-            editDestinationIdEditText.setText(String.valueOf(destinationId));
+            editTourIdEditText.setText(String.valueOf(tourId));
             editFeedbackEditText.setText(feedback);
             editDateFeedbackEditText.setText(dateFeedback);
 
@@ -217,11 +226,11 @@ public class Admin_feedback extends AppCompatActivity {
             public void onClick(View v) {
                 // Save edited feedback data
                 int newUserId = Integer.parseInt(editUserIdEditText.getText().toString());
-                int newDestinationId = Integer.parseInt(editDestinationIdEditText.getText().toString());
+                int newTourId = Integer.parseInt(editTourIdEditText.getText().toString());
                 String newFeedback = editFeedbackEditText.getText().toString();
                 String newDateFeedback = editDateFeedbackEditText.getText().toString();
 
-                dbHelper.updateFeedback(feedbackId, newUserId, newDestinationId, newFeedback, newDateFeedback);
+                dbHelper.updateFeedback(feedbackId, newUserId, newTourId, newFeedback, newDateFeedback);
                 editFeedbackDialog.setVisibility(View.GONE);
                 refreshFeedbackTable();
             }

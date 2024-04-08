@@ -3,7 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/rounded_border"
+    android:padding="16dp"
+    >
 
     <ImageView
         android:id="@+id/imageView4z"
@@ -32,7 +35,7 @@
             android:id="@+id/descriptionz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/destinationz"
+            android:layout_below="@id/amountz"
             android:text="description"
             android:layout_marginTop="7dp"
             tools:ignore="HardcodedText" />
@@ -41,18 +44,18 @@
             android:id="@+id/pricez"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_toRightOf="@id/destinationz"
+            android:layout_below="@id/destinationz"
             android:text="price"
+            android:layout_marginTop="7dp"
             tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/amountz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_toRightOf="@id/pricez"
+            android:layout_below="@id/pricez"
             android:text="amount"
+            android:layout_marginTop="7dp"
             tools:ignore="HardcodedText" />
 
         <TextView

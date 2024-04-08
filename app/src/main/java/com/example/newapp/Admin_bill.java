@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -85,6 +86,12 @@ public class Admin_bill extends AppCompatActivity {
                 amountEditText.setText("");
                 billForm.setVisibility(View.GONE);
             }
+        });
+
+        Button btnBack = findViewById(R.id.exitButton);
+        btnBack.setOnClickListener(v -> {
+            Intent intent = new Intent(Admin_bill.this,Admin_home.class);
+            startActivity(intent);
         });
 
     }

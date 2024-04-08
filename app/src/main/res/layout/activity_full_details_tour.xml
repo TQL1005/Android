@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Full_Details_Tour">
+    tools:context=".Full_Details_Tour"
+    android:background="#E0FFFF">
 
     <ScrollView
         android:layout_width="match_parent"
